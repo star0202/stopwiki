@@ -1,6 +1,7 @@
 import discord
 import re
 import time
+from asyncio import sleep
 
 client = discord.Client(intents=discord.Intents.all())
 
@@ -27,7 +28,7 @@ async def on_message(msg):
     if p.search(msg.content):
         a = await msg.channel.send("위키백과 관련 대화는 제한됩니다.")
         await msg.delete()
-        time.sleep(5)
+        sleep(5)
         await a.delete()
         return
 
